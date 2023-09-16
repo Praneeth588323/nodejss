@@ -16,7 +16,7 @@ Create a simple nodeJs application and deploy it onto a docker container.
 2. Running this command in working directory will initialize your project
     > npm init
   
-This will create a **package.json** file in the folder, that file contains app dependency packages.
+This will create a **package.json** file in the folder, that file contains app dependency packages..
 
 Replace the following code of package.json
 
