@@ -1,7 +1,6 @@
 pipeline{
     agent any
     stages{
-        
         stage('build and push'){
             steps{
                 sh '''
@@ -13,7 +12,7 @@ pipeline{
             }
         }
         stage('deploy'){
-            step{
+            steps{
                 sh'''
                 ssh -i /var/lib/jenkins/public.pem -o StrictHostKeyChecking=no ubuntu@ec2-51-20-63-47.eu-north-1.compute.amazonaws.com 'bash -s' < ./deploy.sh \${BUILD_NUMBER} 
                 '''
