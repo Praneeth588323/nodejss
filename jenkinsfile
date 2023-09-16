@@ -6,7 +6,7 @@ pipeline{
                 sh '''
                 whoami
                 aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 191719037956.dkr.ecr.eu-north-1.amazonaws.com
-                docker build -t 191719037956.dkr.ecr.eu-north-1.amazonaws.com/nodejss:${BUILD_NUMBER}
+                docker build -t 191719037956.dkr.ecr.eu-north-1.amazonaws.com/nodejss:${BUILD_NUMBER} .
                 docker push 191719037956.dkr.ecr.eu-north-1.amazonaws.com/nodejss:${BUILD_NUMBER}
                 '''     
             }
