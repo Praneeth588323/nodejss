@@ -11,6 +11,19 @@ pipeline{
                 '''     
             }
         }
+        stage('SCM'){
+            steps{
+                checkout scm
+            }
+        }
+        stage('sonar'){
+            steps{
+                def scannerHome = tool 'sonarqube';
+                withSonarQubeEnv() {
+                sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
         stage('deploy'){
             steps{
                 sh'''
